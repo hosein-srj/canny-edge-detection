@@ -9,11 +9,11 @@ There are lots of edge detection algorithms but in this assignment, you will imp
 • Gradient calculation <br>
 • Non-maximum suppression <br>
 • Thresholding <br>
-• hysteresis thresholding <br>
+• Hysteresis Thresholding <br>
 
 
 
-<h3> Smoothing </h3>
+<h2> Smoothing </h2>
 
 Before starting the actual edge detection, we first smooth the image to reduce the amount of edges detected from the noise. Smoothing is typically done by applying a low-pass filter to the image (as the noise is often high frequency term in the image). In this assignment, we will use a Gaussian blur. The following example shows the effect of the Gaussian smoothing:
 
@@ -24,7 +24,7 @@ Gaussian blur is defined as a convolution between the image and the following 5x
 
 ![image](https://user-images.githubusercontent.com/54143711/137169652-db954414-8a56-4dce-a439-a84a5cdda211.png)
 
-Gradient calculation
+<h2> Gradient calculation </h2>
 
 Simply put, the edges in an image are from the sudden changes of brightness, assuming that each object consists of pixels that do not greatly vary in their brightness. One way to measure how big the change is to calculate the gradient magnitude at each pixel. The gradient operator we are going to use in this assignment is Sobel operator. Sobel operator is based on the following two 3x3 filters, which calculate x and y component of the gradient, respectively:
 
@@ -39,16 +39,16 @@ result of gradient calculation:
 ![image](https://user-images.githubusercontent.com/54143711/137169876-8aff34dc-84b3-450a-81fe-a1b159f6fe50.png)
 
 
-Non-maximum suppression
+<h2>  Non-maximum suppression </h2>
 
 One of the artifacts from smoothing is that it also makes the object boundaries blurry. As a result, the gradients calculated from the previous step might make the final edges span multiple pixels. In order to get sharper edges, we find local maxima in the gradient image and remove the others. Local maxima can be found in various ways, but in this assignment we will implement a simple one: a gradient is considered locally maximal if it is either greater than or equal to its neighbors in the positive and negative gradient direction.
 
-Thresholding
+<h2> Thresholding </h2>
 
 Once we have computed a measure of edge strength (typically the gradient magnitude), the next stage is to apply a threshold, to decide whether edges are present or not at an image point. The lower the threshold, the more edges will be detected, and the result will be increasingly susceptible to noise and detecting edges of irrelevant features in the image. Conversely a high threshold may miss subtle edges, or result in fragmented edges
 
 
-hysteresis thresholding
+<h2> Hysteresis Thresholding </h2>
 
 It uses two threshold values: a high (Th) and a low (Tl) Threshold. All pixels with gradient magnitude are greater than high threshold are considered as edge pixels, and all pixels with magnitude gradient values less than low threshold are considered as noisy edge points and dicarded. Finally, the pixels with magnitude gradient value between thetwo thresholds are considered as edge point only if they are connected to strong edge points.
 
