@@ -4,11 +4,15 @@ Edge detection is an image processing technique to find boundaries of objects in
 ![image](https://user-images.githubusercontent.com/54143711/137169435-0d6c25af-7b6f-437f-9f2c-ca918a76c19b.png)
 
 There are lots of edge detection algorithms but in this assignment, you will implement an algorithm with the following three steps:
-• Smoothing
+• Smoothing 
+
 • Gradient calculation
+
 • Non-maximum suppression
+
 • Thresholding
-• Thresholding
+
+• hysteresis thresholding
 
 
 Smoothing
