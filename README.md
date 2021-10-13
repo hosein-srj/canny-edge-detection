@@ -15,7 +15,7 @@ There are lots of edge detection algorithms but in this assignment, you will imp
 • hysteresis thresholding
 
 
-Smoothing
+<h3> Smoothing </h3>
 
 Before starting the actual edge detection, we first smooth the image to reduce the amount of edges detected from the noise. Smoothing is typically done by applying a low-pass filter to the image (as the noise is often high frequency term in the image). In this assignment, we will use a Gaussian blur. The following example shows the effect of the Gaussian smoothing:
 
